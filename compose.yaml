@@ -5,7 +5,7 @@ services:
     container_name: navidrome
     restart: unless-stopped
     environment:
-      - ND_DEFAULTLANGUAGE=pt-br
+      - ND_DEFAULTLANGUAGE=pt
     volumes:
       - navidrome:/data
       - /storage/ssd-1/Músicas:/music:ro
