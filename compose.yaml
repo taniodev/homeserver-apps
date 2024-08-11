@@ -17,8 +17,8 @@ services:
     container_name: transmission
     restart: unless-stopped
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${TRANSMISSION_UID}
+      - PGID=${TRANSMISSION_GID}
       - TZ=America/Sao_Paulo
       - FILE__USER=/run/secrets/transmission_user
       - FILE__PASS=/run/secrets/transmission_pass
