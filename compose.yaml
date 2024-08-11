@@ -1,4 +1,17 @@
 services:
+  navidrome:
+    image: deluan/navidrome:0.52.5
+    user: ${NAVIDROME_UID}:${NAVIDROME_GID}
+    container_name: navidrome
+    restart: unless-stopped
+    environment:
+      - ND_DEFAULTLANGUAGE=pt-br
+    volumes:
+      - navidrome:/data
+      - /storage/ssd-1/Músicas:/music:ro
+    ports:
+      - 4533:4533
+
   transmission:
     image: linuxserver/transmission:4.0.6
     container_name: transmission
@@ -27,4 +40,5 @@ secrets:
     file: ./.secrets/transmission_pass.txt
 
 volumes:
+  navidrome:
   transmission:
