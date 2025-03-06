@@ -1,0 +1,13 @@
+services:
+  navidrome:
+    image: deluan/navidrome:0.52.5
+    user: ${NAVIDROME_UID}:${NAVIDROME_GID}
+    container_name: navidrome
+    restart: unless-stopped
+    environment:
+      - ND_DEFAULTLANGUAGE=pt
+    volumes:
+      - ./data:/data
+      - /storage/ssd-1/Músicas:/music:ro
+    ports:
+      - 4533:4533
