@@ -1,12 +1,12 @@
 # homeserver-apps
 
-Os usuários que devem ser usados para executar os containers podem ser configurados no arquivo .env usando UID e GID:
+Alguns aplicativos possuem um arquivo de configurações chamado **env.file** em seus diretórios. Para modificá-los, faça uma cópia do arquivo original conforme o exemplo abaixo, e leia as instruções em cada arquivo:
 ```console
 $ cp env.file .env
 $ nano .env
 ```
 
-Para obter o UID e o GID de um usuário existente no sistema, use o comando **id** no console:
+Quando for necessário indicar um usuário do sistema para executar o container, use o comando **id** no console para obter o UID e o GID:
 ```console
 $ id <usuário>
 ```

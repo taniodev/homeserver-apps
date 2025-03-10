@@ -1,0 +1,19 @@
+services:
+  miniflux:
+    image: miniflux/miniflux:2.2.6
+    container_name: miniflux
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@postgres/${DB_NAME}?sslmode=disable
+      - RUN_MIGRATIONS=1
+      - CREATE_ADMIN=1
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=admin1
+    ports:
+      - 4530:8080
+    networks:
+      - postgres_miniflux
+
+networks:
+  postgres_miniflux:
+    external: true
