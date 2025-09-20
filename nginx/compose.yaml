@@ -1,0 +1,15 @@
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    restart: unless-stopped
+    volumes:
+      - ./conf.d/miniflux.conf:/etc/nginx/conf.d/miniflux.conf:ro
+    ports:
+      - 80:80
+    networks:
+      - net
+
+networks:
+  net: # nginx_net
+    driver: bridge

@@ -9,11 +9,12 @@ services:
       - CREATE_ADMIN=1
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=admin1
-    ports:
-      - 4530:8080
     networks:
       - postgres_miniflux
+      - nginx_net
 
 networks:
   postgres_miniflux:
+    external: true
+  nginx_net:
     external: true
