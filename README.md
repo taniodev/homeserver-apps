@@ -10,3 +10,8 @@ Quando for necessário indicar um usuário do sistema para executar o container,
 ```console
 $ id <usuário>
 ```
+
+Para criar um usuário para executar os apps:
+```console
+sudo useradd --system --no-create-home --shell /usr/sbin/nologin username
+```
