@@ -1,0 +1,15 @@
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    restart: unless-stopped
+    environment:
+      - PUID=${JELLYFIN_UID}
+      - PGID=${JELLYFIN_GID}
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ./data:/config
+      - /storage/hdd-1/video:/media
+    ports:
+      - 8080:8096/tcp
+      - 7359:7359/udp
