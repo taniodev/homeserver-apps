@@ -1,7 +1,8 @@
 services:
   jellyfin:
     image: jellyfin/jellyfin:latest
-    user: ${JELLYFIN_UID}:${JELLYFIN_GID}
+    user: ${UID}:${GID}
+    group_add: ["${GROUP_ID}"]
     container_name: jellyfin
     restart: unless-stopped
     volumes:
