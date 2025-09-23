@@ -1,7 +1,8 @@
 services:
   navidrome:
     image: deluan/navidrome:0.58.0
-    user: ${NAVIDROME_UID}:${NAVIDROME_GID}
+    user: ${UID}:${GID}
+    group_add: ["${GROUP_ID}"]
     container_name: navidrome
     restart: unless-stopped
     environment:
