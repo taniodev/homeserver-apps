@@ -9,5 +9,9 @@ services:
     volumes:
       - ./data:/data
       - /storage/ssd-1/Músicas:/music:ro
-    ports:
-      - 4533:4533
+    networks:
+      - nginx_net
+
+networks:
+  nginx_net:
+    external: true
