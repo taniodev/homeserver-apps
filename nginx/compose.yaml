@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./conf.d/jellyfin.conf:/etc/nginx/conf.d/jellyfin.conf:ro
+      - ./conf.d/joplin.conf:/etc/nginx/conf.d/joplin.conf:ro
       - ./conf.d/miniflux.conf:/etc/nginx/conf.d/miniflux.conf:ro
       - ./conf.d/navidrome.conf:/etc/nginx/conf.d/navidrome.conf:ro
     ports:

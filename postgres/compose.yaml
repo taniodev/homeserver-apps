@@ -10,6 +10,7 @@ services:
     secrets:
       - postgres_password
     networks:
+      - joplin
       - miniflux
 
 secrets:
@@ -20,5 +21,7 @@ volumes:
   postgres:
 
 networks:
+  joplin: # postgres_joplin
+    driver: bridge
   miniflux: # postgres_miniflux
     driver: bridge

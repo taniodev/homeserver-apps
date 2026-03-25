@@ -1,0 +1,25 @@
+# Arquivo compose de exemplo disponível em:
+# https://raw.githubusercontent.com/laurent22/joplin/dev/docker-compose.server.yml
+
+services:
+  joplin:
+    image: joplin/server:latest
+    container_name: joplin
+    restart: unless-stopped
+    environment:
+      - APP_PORT=22300
+      - APP_BASE_URL=${BASE_URL}
+      - DB_CLIENT=pg
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DATABASE=${DB_NAME}
+      - POSTGRES_HOST=postgres
+    networks:
+      - postgres_joplin
+      - nginx_net
+
+networks:
+  postgres_joplin:
+    external: true
+  nginx_net:
+    external: true
